@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(
+     * fields = {"email"}
+     * )
  */
 class User implements UserInterface
 {
@@ -21,6 +25,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * 
      */
     private $email;
 
@@ -136,7 +141,6 @@ class User implements UserInterface
     public function setPasswordConfirm(string $passwordConfirm): self
     {
         $this->password = $passwordConfirm;
-
         return $this;
     }
 

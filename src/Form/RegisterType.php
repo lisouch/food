@@ -30,17 +30,16 @@ class RegisterType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
                 'required' => true,
-                'label'=> false,
                 'first_options' => 
-                    ['label' => false],
-                    ['attr' => [
-                        'placeholder' => "mdp"
-                    ]],
+                ['label'=> false,
+                 'attr' => 
+                    ['placeholder' => "mdp"]
+                ],
                 'second_options' => 
-                ['label' => false],
-                    ['attr' => [
-                        'placeholder' => "confirmez le mdp"
-                    ]]
+                ['label'=> false,
+                 'attr' => 
+                    ['placeholder' => "confirmez mdp"]
+                ]
                 ])
                 
             // ->add('passwordConfirm', PasswordType::class, [

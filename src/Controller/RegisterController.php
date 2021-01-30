@@ -8,14 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController 
 {
     /**
      * @Route("/inscription", name="register")
      */
-    public function index(HttpFoundationRequest $request): Response
+    public function index(HttpFoundationRequest $request, UserPasswordEncoderInterface $encoder): Response
     {
+
         $user = new User();
 
         $form = $this->createForm(RegisterType::class, $user);
@@ -24,11 +26,17 @@ class RegisterController extends AbstractController
 
         if($form->isSubmitted()  && $form->isValid()){
             
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+
+            $user->setPassword($hash);
+
             $user = $form->getData();
 
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($user);
             $doctrine->flush();
+
+            return $this->redirectToRoute('app_login');
 
         }
 
