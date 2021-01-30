@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ConnexionController extends AbstractController
+class ForgotPasswordController extends AbstractController
 {
     /**
-     * @Route("/index", name="connexion")
+     * @Route("/mdp-oublie", name="forgot_password")
      */
     public function index(): Response
     {
-        return $this->render('connexion/connexion.html.twig', [
-            'controller_name' => 'ConnexionController',
+        return $this->render('forgot_password/index.html.twig', [
+            'controller_name' => 'ForgotPasswordController',
         ]);
     }
 }

@@ -12,3 +12,13 @@ h1{
 #confirmButton{
     text-align: center;
 }
+
+.buttonContainer{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.fail{
+    display: flex;
+justify-content: center;
+}

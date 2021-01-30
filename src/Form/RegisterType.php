@@ -21,7 +21,7 @@ class RegisterType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre email'
+                    'placeholder' => 'Entrez votre email'
                 ],
                 'label'=> false
                 ])
@@ -31,53 +31,45 @@ class RegisterType extends AbstractType
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
                 'required' => true,
                 'label'=> false,
-                'first_options' => 
-                    ['label' => false],
-                    ['attr' => [
-                        'placeholder' => "mdp"
+                'first_options' =>
+                    ['label' => false,
+                        'attr' => 
+                        ['placeholder' => "Entrez votre mot de passe"
                     ]],
-                'second_options' => 
-                ['label' => false],
-                    ['attr' => [
-                        'placeholder' => "confirmez le mdp"
+                'second_options' =>
+                    ['label' => false,
+                        'attr' => 
+                        ['placeholder' => "Confirmez votre mot de passe"
                     ]]
                 ])
-                
-            // ->add('passwordConfirm', PasswordType::class, [
-            //     'attr' => [
-            //         'placeholder' => 'Confirmez votre mot de passe',
-            //         'mapped' => false,
-            //     ],
-            //     'label'=> false
-            //     ])
 
             ->add('lastName', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre nom'
+                    'placeholder' => 'Entrez votre nom'
                 ],
                 'label'=> false
                 ])
             ->add('firstName', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre prénom'
+                    'placeholder' => 'Entrez votre prénom'
                 ],
                 'label'=> false
                 ])
             ->add('address', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre adresse'
+                    'placeholder' => 'Entrez votre adresse'
                 ],
                 'label'=> false
                 ])
             ->add('cp', IntegerType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre code postal'
+                    'placeholder' => 'Entrez votre code postal'
                 ],
                 'label'=> false
                 ])
             ->add('city', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'entrez votre ville'
+                    'placeholder' => 'Entrez votre ville'
                 ],
                 'label'=> false
                 ])
