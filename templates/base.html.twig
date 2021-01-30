@@ -8,9 +8,9 @@
 		</title>
 
 		<link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
 
-		{% block stylesheets %}
-			<link rel="stylesheet" href="css/style.css">
+		{% block css %}
 		{% endblock %}
 
 		{% block javascripts %}{% endblock %}
@@ -44,8 +44,11 @@
 			</nav>
 		{% endblock %}
 
-		<div class="container"> {% block body %}{% endblock %}
-			</div>
+		<div class="container"> 
+		{% block body %}
+		
+		{% endblock %}
+		</div>
 
 
 			{% block js %}{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créez votre compte - Food to you{% endblock %}
+
+
+{% block body %}
+
+    <h1>Formulaire d'inscription</h1>
+    <div id="formUser">
+        {{ form_start(formRegister) }}
+
+        {{ form_widget(formRegister) }}
+            
+        {{ form_end(formRegister) }}
+
+    </div>
+
+
+
+{% endblock body %}

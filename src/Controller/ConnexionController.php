@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ConnexionController extends AbstractController
 {
     /**
-     * @Route("/connexion", name="connexion")
+     * @Route("/index", name="connexion")
      */
     public function index(): Response
     {
-        return $this->render('connexion/connexion.html.twig', [
+        return $this->render('connexion/index.html.twig', [
             'controller_name' => 'ConnexionController',
         ]);
     }
