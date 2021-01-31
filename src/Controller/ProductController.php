@@ -13,9 +13,9 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 
-/**
- * @Route("/produit")
- */
+// /**
+//  * @Route("/produit")
+//  */
 class ProductController extends AbstractController
 {
     /**
