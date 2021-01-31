@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegisterType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController 
@@ -25,6 +25,8 @@ class RegisterController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted()  && $form->isValid()){
+
+            $user ->setCreatedAt(new \DateTime());
 
             $hash = $encoder->encodePassword($user, $user->getPassword());
             
