@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ path('home') }}">
-        <img id="logo" src="../assets/img/logofood.png" alt="">
+        <img id="logo" src="../assets/img/logoFood.png" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,15 +10,23 @@
             <a class="navbar-brand" href="{{ path('home') }}"></a>
         </ul>
         <ul class="navbar-nav">
+         {% if app.user %} 
+
             <li class="nav-item active">
-                <a class="nav-link" href="{{ path('post') }}">Publiez votre annonce</a>
+                <a class="nav-link" href="#">Publiez votre annonce</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('bag') }}">Panier</a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                <a class="nav-link" href="{{ path('app_login') }}">Deconnexion</a>
             </li>
-        </ul>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}">Connexion</a>
+            </li>
+            {% endif %}
+     </ul>
     </div>
 </nav>

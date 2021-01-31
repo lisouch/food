@@ -1,3 +1,6 @@
+/**********************
+        navbar
+***********************/
 #logo, #whiteLogo{
     width: 30%;
     height: 30%;
@@ -43,12 +46,7 @@ body {
 .title{
     padding-top: 15%;
 }
-p{
-    color: white;
-    font-size: 3em;
-    text-align: center;
 
-}
 /* 
 .navbar-fixed-top.scrolled {
     background-color: #113448;
@@ -60,3 +58,22 @@ p{
     transition: padding 300ms ease-out ;
     padding-top: 0px;
 } */
+
+/**********************
+    page login
+***********************/
+#fail {
+text-align: center;
+margin-top: 2%;
+}
+#fail>div{
+    padding-top: 1%;
+}
+
+/**********************
+    page produit/nouveau
+***********************/
+.mealPost{
+    text-align: center;
+    margin: 2% 0;
+}
