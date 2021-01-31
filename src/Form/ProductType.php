@@ -47,9 +47,7 @@ class ProductType extends AbstractType
                 'attr'=> [
                     'placeholder' => "Téléchargez votre image"
                 ],
-                'data_class' => "Symfony\Component\HttpFoundation\File\File",
                 'label' => false,
-                'multiple' => true,
                 'mapped' => false,
                 'constraints' => [
                   new File([

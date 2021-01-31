@@ -39,24 +39,24 @@ class ProductController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // $image = $form->get('image')->getData;
+            $product ->setCreatedAt(new \DateTime());
+            $image = $form->get('image')->getData();
 
-            // if($image){
-            //     $originalImage = pathinfo($image->getImage(), PATHINFO_FILENAME);
-            //     $safeImage = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalImage);
-            //     $newImage = $safeImage.'-'.uniqid().'.'.$image->guessExtension();
+            if($image){
+                $originalImage = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImage = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalImage);
+                $newImage = $safeImage.'-'.uniqid().'.'.$image->guessExtension();
 
-            //     try {
-            //         $image->move(
-            //             $this->getParameter('images_directory'),
-            //             $newImage
-            //         );
-            //     } catch (FileException $e) {
+                try {
+                    $image->move($this->getParameter('images_directory'),
+                        $newImage
+                    );
+                } catch (FileException $e) {
                     
-            //     }
+                }
 
-            //     $product->setImage($newImage);
-            // }
+                $product->setImage($newImage);
+            }
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
@@ -86,7 +86,7 @@ class ProductController extends AbstractController
      */
     public function edit(Request $request, Product $product): Response
     {
-        $form = $this->createForm(Product1Type::class, $product);
+        $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
