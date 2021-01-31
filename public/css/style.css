@@ -22,3 +22,10 @@ h1{
     display: flex;
 justify-content: center;
 }
+
+#bgImg{
+    height: 400px;
+    background-image: url(../assets/img/brunch.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
