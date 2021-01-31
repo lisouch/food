@@ -19,30 +19,6 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre email'
-                ],
-                'label'=> false
-                ])
-
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
-                'required' => true,
-                'label'=> false,
-                'first_options' =>
-                    ['label' => false,
-                        'attr' => 
-                        ['placeholder' => "Entrez votre mot de passe"
-                    ]],
-                'second_options' =>
-                    ['label' => false,
-                        'attr' => 
-                        ['placeholder' => "Confirmez votre mot de passe"
-                    ]]
-                ])
-
             ->add('lastName', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Entrez votre nom'
@@ -61,7 +37,7 @@ class RegisterType extends AbstractType
                 ],
                 'label'=> false
                 ])
-            ->add('cp', IntegerType::class, [
+            ->add('cp', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Entrez votre code postal'
                 ],
@@ -73,11 +49,40 @@ class RegisterType extends AbstractType
                 ],
                 'label'=> false
                 ])
+                ->add('phone', TextType::class, [
+                    'attr' => [
+                        'placeholder' => 'Entrez votre numéro de téléphone'
+                    ],
+                    'label'=> false
+                    ])
+                ->add('email', EmailType::class, [
+                    'attr' => [
+                        'placeholder' => 'Entrez votre email'
+                    ],
+                    'label'=> false
+                    ])
+                ->add('password', RepeatedType::class, [
+                    'type' => PasswordType::class,
+                    'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
+                    'required' => true,
+                    'label'=> false,
+                    'first_options' =>
+                        ['label' => false,
+                            'attr' => 
+                            ['placeholder' => "Entrez votre mot de passe"
+                        ]],
+                    'second_options' =>
+                        ['label' => false,
+                            'attr' => 
+                            ['placeholder' => "Confirmez votre mot de passe"
+                        ]]
+                    ])
             ->add('details', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Décrivez vous en quelques mots'
                 ],
-                'label'=> false
+                'label'=> false,
+                'required' => false
                 ]) 
             ->add('submit', SubmitType::class,[
                 'label' => 'S\'inscrire'

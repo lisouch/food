@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publiez votre plat - Food To You{% endblock %}
+
+{% block navbar %}
+    {% include "includes/navbarComplete.html.twig" %}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Publiez votre plat</h1>
+
+    {{ include('product/_form.html.twig') }}
+
+    <a href="{{ path('product_index') }}">back to list</a>
+{% endblock %}
