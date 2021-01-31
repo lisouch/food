@@ -1,4 +1,4 @@
-img#logo{
+#logo, #whiteLogo{
     width: 30%;
     height: 30%;
 }
@@ -12,7 +12,6 @@ h1{
 #confirmButton{
     text-align: center;
 }
-
 .buttonContainer{
     margin-top: 2%;
     display: flex;
@@ -22,10 +21,37 @@ h1{
     display: flex;
 justify-content: center;
 }
-
-#bgImg{
-    height: 400px;
-    background-image: url(../assets/img/brunch.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
+.header{
+    background: url(../assets/img/brunch.jpg) no-repeat;
+    background-size: cover;
+} 
+body {
+    height: 2000px;
 }
+/* #navAnim, #navFixed{
+    position: fixed;
+} */
+.welcome{
+    height: 700px;
+    /* background-color: tomato; */
+}
+.title{
+    padding-top: 15%;
+}
+p{
+    color: white;
+    font-size: 3em;
+    text-align: center;
+
+}
+/* 
+.navbar-fixed-top.scrolled {
+    background-color: #113448;
+}
+.navbar .container.scrolled {
+    -webkit-transition: padding 300ms ease-out ;
+    -moz-transition: padding 300ms ease-out ;
+    -o-transition: padding 300ms ease-out ;
+    transition: padding 300ms ease-out ;
+    padding-top: 0px;
+} */

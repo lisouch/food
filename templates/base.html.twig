@@ -13,20 +13,20 @@
 		{% block css %}
 		{% endblock %}
 
-		{% block javascripts %}{% endblock %}
 	</head>
 
-	<body>
+    <body ontouchstart="" data-spy="scroll" data-target=".navbar">
+	{% block body %}
+
 		{% block navbar %}
-			{% include "includes/navbarConnexion.html.twig" %}
-		{% endblock %}
-
-		{% block body %}
-		
+			{# {% include "includes/navbarConnexion.html.twig" %} #}
 		{% endblock %}
 
 
-			{% block js %}{% endblock %}
-		</body>
 
-	</html>
+{% endblock body %}
+
+</body>
+{% block js %}{% endblock %}
+
+</html>

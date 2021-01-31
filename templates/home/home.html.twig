@@ -3,13 +3,27 @@
 {% block title %}Bienvenue chez Food To you !
 {% endblock %}
 
-{% block navbar %}
-    {% include "includes/navbarConnexion.html.twig" %}
-{% endblock %}
+{% block header %}
+
+
+{% endblock header %}
 
 {% block body %}
-	<div id="bgImg">
-	
-	
+	<div class="header">
+		{% block navbar %}
+
+			{% include "includes/navbarConnexion.html.twig" %}
+
+		{% endblock navbar %}
+		<div class="welcome">
+			<p class="title" >Bienvenue chez Food To You</p>
+			<p>des plats faits maison dans vos maisons</p>
+		</div>
 	</div>
 {% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/lisa.js"></script>
+{% endblock %}
+
