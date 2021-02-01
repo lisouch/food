@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -36,6 +37,10 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *          min = 8,
+     *          minMessage = "Votre mot de passe doit contenir au moins 8 caractères"
+     * )
      */
     private $password;
 
@@ -58,6 +63,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *          min = 5,
+     *          max = 5,
+     *          minMessage = "Le code postal doit contenir 5 chiffres",
+     *          maxMessage = "Le code postal doit contenir 5 chiffres"
+     * ) 
      */
     private $cp;
 
@@ -73,6 +84,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *          min = 10,
+     *          max = 10,
+     *          minMessage = "Veuillez entrez un numéro de téléphone valide !",
+     *          maxMessage = "Veuillez entrez un numéro de téléphone valide !"
+     * )
      */
     private $phone;
 

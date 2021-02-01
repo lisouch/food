@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Entity\User;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,13 +14,11 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 
-// /**
-//  * @Route("/produit")
-//  */
+
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/", name="product_index", methods={"GET"})
+     * @Route("/produit", name="product_index", methods={"GET"})
      */
     public function index(ProductRepository $productRepository): Response
     {
@@ -29,17 +28,22 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/nouveau", name="product_new", methods={"GET","POST"})
+     * @Route("/creation", name="product_new", methods={"GET","POST"})
      */
     public function new(Request $request ): Response
     {
         $product = new Product();
+
+        $user = $this->getUser();
+        $product->setUser($user);
+
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $product ->setCreatedAt(new \DateTime());
+
             $image = $form->get('image')->getData();
 
             if($image){
@@ -58,6 +62,7 @@ class ProductController extends AbstractController
                 $product->setImage($newImage);
             }
 
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
@@ -72,17 +77,17 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="product_show", methods={"GET"})
+     * @Route("/produit/{id}", name="product_show", methods={"GET"})
      */
     public function show(Product $product): Response
     {
         return $this->render('product/show.html.twig', [
-            'product' => $product,
+            'product' => $product
         ]);
     }
 
     /**
-     * @Route("/{id}/editer", name="product_edit", methods={"GET","POST"})
+     * @Route("/produit/{id}/editer", name="product_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Product $product): Response
     {
@@ -102,7 +107,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="product_delete", methods={"DELETE"})
+     * @Route("/produit/{id}", name="product_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Product $product): Response
     {

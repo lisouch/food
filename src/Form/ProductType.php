@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
+use App\Entity\Diet;
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
-use phpDocumentor\Reflection\Types\Boolean;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -31,6 +33,22 @@ class ProductType extends AbstractType
             ->add('timeMax', TimeType::class,[
                 'label' => "Jusqu'à"
             ])
+
+            ->add('category', EntityType::class,
+            [
+                'class'=> Category::class,
+                'choice_label' => function ($category) {return $category->getName();},
+                'label' => false
+            ])
+
+            ->add('diet', EntityType::class,
+            [
+                'class'=> Diet::class,
+                'choice_label' => function ($diet) {return $diet->getName();},
+                'label' => false
+            ]
+            )
+
             ->add('price', MoneyType::class, [
                 'attr'=> [
                     'placeholder' => "Indiquez votre prix"
@@ -66,7 +84,7 @@ class ProductType extends AbstractType
             ])
         ;
     }
-
+ 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
