@@ -4,21 +4,33 @@
 
 {% block css %}{% endblock %}
 
+{% block header %} 
+	<header>
+			{% include "includes/navbar.html.twig" %} 
+		<div class="welcome">
+			<p class="title" >Bienvenue chez Food To You</p>
+			<p>des plats faits maison dans vos maisons</p>
+		</div>
+	</header>
+{% endblock header %}
+
 {% block body %}
+<div class='searchingBar'>
+	<div class='adress'>
+	Entrez votre adresse
+
+	</div>
+
+</div>
 
 	
 
-	<div class="welcome">
-		<p class="title" >Bienvenue chez Food To You</p>
-		<p>des plats faits maison dans vos maisons</p>
-	</div>
+	
 
 
 {% endblock body %}
 
-{% block js %}
-<script src="js/lisa.js"></script>
-{% endblock js  %}
+{% block js %}<script src="js/lisa.js"></script>{% endblock js  %}
 
 
 
