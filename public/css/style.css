@@ -1,11 +1,10 @@
-/* .container{
-    margin: 0 auto;
-} */
-
-img#logo{
+/**********************
+        navbar
+***********************/
+#logo, #whiteLogo{
     width: 30%;
     height: 30%;
-}
+} 
 #formUser{
     padding-top: 2%;
 }
@@ -21,7 +20,6 @@ h1{
 #confirmButton{
     text-align: center;
 }
-
 .buttonContainer{
     margin-top: 2%;
     display: flex;
@@ -30,4 +28,52 @@ h1{
 .fail{
     display: flex;
 justify-content: center;
+}
+.header{
+    background: url(../assets/img/brunch.jpg) no-repeat;
+    background-size: cover;
+} 
+body {
+    height: 2000px;
+}
+/* #navAnim, #navFixed{
+    position: fixed;
+} */
+.welcome{
+    height: 700px;
+    /* background-color: tomato; */
+}
+.title{
+    padding-top: 15%;
+}
+
+/* 
+.navbar-fixed-top.scrolled {
+    background-color: #113448;
+}
+.navbar .container.scrolled {
+    -webkit-transition: padding 300ms ease-out ;
+    -moz-transition: padding 300ms ease-out ;
+    -o-transition: padding 300ms ease-out ;
+    transition: padding 300ms ease-out ;
+    padding-top: 0px;
+} */
+
+/**********************
+    page login
+***********************/
+#fail {
+text-align: center;
+margin-top: 2%;
+}
+#fail>div{
+    padding-top: 1%;
+}
+
+/**********************
+    page produit/nouveau
+***********************/
+.mealPost{
+    text-align: center;
+    margin: 2% 0;
 }

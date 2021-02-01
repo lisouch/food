@@ -7,6 +7,7 @@ use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -24,16 +25,20 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *          min = 5,
+     *          minMessage = "Le titre doit contenir au moins 5 caractères"
+     * )
      */
     private $title;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
     private $timeMin;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
     private $timeMax;
 
@@ -44,6 +49,10 @@ class Product
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *          min = 10,
+     *          minMessage = "Votre description doit contenir au moins 10 caractères"
+     * )
      */
     private $description;
 
@@ -57,7 +66,7 @@ class Product
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      * 
      */
     private $image;
@@ -78,6 +87,16 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Diet::class, inversedBy="products")
+     */
+    private $diet;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -156,16 +175,16 @@ class Product
         if ($this->imageFile instanceof UploadedFile) {
             $this->updatedAt = new \DateTime('now');
         }
-
+ 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage( $image): self
     {
         $this->image = $image;
 
@@ -204,6 +223,30 @@ class Product
     public function setUpdateAt(?\DateTimeInterface $updateAt): self
     {
         $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    public function getDiet(): ?Diet
+    {
+        return $this->diet;
+    }
+
+    public function setDiet(?Diet $diet): self
+    {
+        $this->diet = $diet;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

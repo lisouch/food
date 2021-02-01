@@ -23,8 +23,8 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.title }}</td>
-                <td>{{ product.timeMin ? product.timeMin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ product.timeMax ? product.timeMax|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ product.timeMin ? product.timeMin|date('H:i:s') : '' }}</td>
+                <td>{{ product.timeMax ? product.timeMax|date('H:i:s') : '' }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.image }}</td>
