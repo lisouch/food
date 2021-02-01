@@ -33,12 +33,15 @@ header{
 .title{
     padding-top: 15%;
 }
-a.navlink{
+.nav-link{
     color: #78c2ad !important;
 }
+.nav-link.scrolled{
+    color: white !important;
+}
+
 .navbar-fixed-top.scrolled {
     background-color: #78c2ad;
-    color: white;
     -webkit-transition: background-color 0.5s ease-in-out;
     -moz-transition: background-color 0.5s ease-in-out;
     -ms-transition: background-color 0.5s ease-in-out;
