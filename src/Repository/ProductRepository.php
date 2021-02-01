@@ -3,8 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Entity\ProductSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Migrations\Query\Query;
+use Doctrine\ORM\Query as ORMQuery;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +21,18 @@ class ProductRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);
+    }
+
+    public function findAllProducts(ProductSearch $search)
+    {
+
+        return $this->createQueryBuilder('p')
+        ->from(Product::class, 'p')
+        ->andwhere('p.title <= :value')
+        ->setParameter('value', $search->getCity())
+        ->getQuery()
+        ->getResult()
+        ;
     }
 
     // /**

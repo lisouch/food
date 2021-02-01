@@ -320,7 +320,7 @@ class User implements UserInterface
     public function getProducts(): Collection
     {
         return $this->products;
-    }
+    }   
 
     public function addProduct(Product $product): self
     {

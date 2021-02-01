@@ -6,27 +6,69 @@
 
 {% block header %} 
 	<header>
-			{% include "includes/navbar.html.twig" %} 
+		 {% include "includes/navbar.html.twig" %}  
 		<div class="welcome">
 			<p class="title" >Bienvenue chez Food To You</p>
 			<p>des plats faits maison dans vos maisons</p>
 		</div>
 	</header>
+	<div class='jumbotron'>
+		<div class="container">
+	    {{form_start(form)}}
+		<div class="form-row">
+			<div class="col">
+				{{ form_row(form.city) }}
+			</div>
+			<div class="col">
+				<button class="btn btn-primary">Rechercher</button>
+			</div>
+		</div>
+
+
+    	{{form_end(form)}} 
+
+	<div class="container mt-4">
+
+		<div class="row">
+			{% for product in products %}
+
+			<div class="col-md-4">
+
+				<div class="card mb-4">
+					<div class="card-body">
+						<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="">					
+						<h5 class="card-title">
+							{{product.title}} 
+						</h5>
+						<p class="card-text">{{product.description}}</p>
+						<div class="text-primary" style="font-size:2rem; font-weight:bold">
+							{{product.price}} €
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			{% endfor %}
+		</div>
+		
+	</div>
+
+
+
+		</div>
+	</div>
 {% endblock header %}
 
 {% block body %}
-<div class='searchingBar'>
-
-    {# {{form_start(form)}}
-
-    {{form(form)}}
-
-
-    {{form_end(form)}} #}
+	
 
 
 
-</div>
+
+
+
+	</div>
 
 
 {% endblock body %}

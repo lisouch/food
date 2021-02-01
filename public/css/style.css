@@ -1,10 +1,58 @@
 /**********************
+        general
+***********************/
+.container {
+    /* height: fit-content; */
+    margin-top: 7%;
+}
+
+
+
+/**********************
         navbar
 ***********************/
 #logo{
     width: 50%;
     height: 50%;
 } 
+header{
+    background: url(../assets/img/brunch.jpg) no-repeat;
+    background-size: cover
+} 
+/* .bg-dark {
+    background-color: rgba(255, 0, 0, 0)!important;
+    padding-top: 20px;
+} */
+.welcome{
+    height: 900px; 
+    font-size: 3em;    
+    color: white;
+    text-align: center;
+    padding-top: 2em 0;
+}
+.title{
+    padding-top: 15%;
+}
+a.navlink{
+    color: #78c2ad !important;
+}
+.navbar-fixed-top.scrolled {
+    background-color: #78c2ad;
+    color: white;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    transition:  background-color 0.5s ease-in-out;
+}
+
+
+
+
+
+/**********************
+        Formulaires
+***********************/
 #formUser{
     padding-top: 2%;
 }
@@ -29,36 +77,6 @@ h1{
     display: flex;
     justify-content: center;
 }
-header{
-    height: 900px;
-    background: url(../assets/img/brunch.jpg) no-repeat;
-    background-size: cover
-} 
-body {
-    height: 2000px;
-}
-
-.bg-dark {
-    background-color: rgba(255, 0, 0, 0)!important;
-    padding-top: 20px;
-}
-.welcome{
-    font-size: 3em;    
-    color: white;
-    text-align: center;
-}
-.title{
-    padding-top: 15%;
-}
-
-.navbar-fixed-top.scrolled {
-    background-color: #78c2ad;
-    -webkit-transition: background-color 0.5s ease-in-out;
-    -moz-transition: background-color 0.5s ease-in-out;
-    -ms-transition: background-color 0.5s ease-in-out;
-    -o-transition: background-color 0.5s ease-in-out;
-    transition:  background-color 0.5s ease-in-out;
-}
 
 
 /**********************
@@ -73,7 +91,7 @@ margin-top: 2%;
 }
 
 /**********************
-    page produit/nouveau
+   page produit/nouveau
 ***********************/
 .mealPost{
     text-align: center;
