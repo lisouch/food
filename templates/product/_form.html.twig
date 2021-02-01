@@ -1,3 +1,20 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_errors(form.title) }}
+    {{ form_row(form.title)}}
+
+    {{ form_row(form.timeMin)}}
+    {{ form_row(form.timeMax)}}
+    {{ form_row(form.category)}}
+    {{ form_row(form.diet)}}
+    {{ form_row(form.price)}}
+
+    {{ form_errors(form.description) }}
+    {{ form_row(form.description)}}
+
+    {{ form_row(form.image)}}
+    {{ form_row(form.submit)}}
+
+    {# {{ form_widget(form) }} #}
 {{ form_end(form) }}
+ 
