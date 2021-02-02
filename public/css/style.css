@@ -1,10 +1,50 @@
 /**********************
+        general
+***********************/
+.container {
+    /* height: fit-content; */
+    /* margin-top: 7%; */
+}
+/*********************
         navbar
 ***********************/
-#logo, #whiteLogo{
-    width: 30%;
-    height: 30%;
+#logo{
+    width: 50%;
+    height: 50%;
 } 
+header{
+    background: url(../assets/img/brunch.jpg) no-repeat;
+    background-size: cover
+} 
+.welcome{
+    height: 900px; 
+    font-size: 3em;    
+    color: white;
+    text-align: center;
+    padding-top: 2em 0;
+}
+.title{
+    padding-top: 15%;
+}
+.nav-link{
+    color: #78c2ad !important;
+}
+.nav-link.scrolled{
+    color: white !important;
+}
+
+.navbar-fixed-top.scrolled {
+    background-color: #78c2ad;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    transition:  background-color 0.5s ease-in-out;
+}
+
+/**********************
+        Formulaires
+***********************/
 #formUser{
     padding-top: 2%;
 }
@@ -27,37 +67,8 @@ h1{
 }
 .fail{
     display: flex;
-justify-content: center;
+    justify-content: center;
 }
-.header{
-    background: url(../assets/img/brunch.jpg) no-repeat;
-    background-size: cover;
-} 
-body {
-    height: 2000px;
-}
-/* #navAnim, #navFixed{
-    position: fixed;
-} */
-.welcome{
-    height: 700px;
-    /* background-color: tomato; */
-}
-.title{
-    padding-top: 15%;
-}
-
-/* 
-.navbar-fixed-top.scrolled {
-    background-color: #113448;
-}
-.navbar .container.scrolled {
-    -webkit-transition: padding 300ms ease-out ;
-    -moz-transition: padding 300ms ease-out ;
-    -o-transition: padding 300ms ease-out ;
-    transition: padding 300ms ease-out ;
-    padding-top: 0px;
-} */
 
 /**********************
     page login
@@ -71,7 +82,7 @@ margin-top: 2%;
 }
 
 /**********************
-    page produit/nouveau
+   page produit/nouveau
 ***********************/
 .mealPost{
     text-align: center;

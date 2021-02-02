@@ -40,7 +40,7 @@
                 </div>
             </div>
         {% else %}
-            <a href="#"><button type="button" class="btn btn-primary">Commander</button></a>
+             <a class="btn btn-primary btn-sm" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au panier</a>
         {% endif %}
            
     </div>

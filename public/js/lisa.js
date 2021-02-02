@@ -1,13 +1,10 @@
 $(document).ready(function() {
 
-$('#navAnim').hide();
-$('#logo').hide();
-
+// $('#navAnim').hide();
 var $nav = $(".navbar-fixed-top");
-var $navContainer = $(".navbar .container");
+var $navLink = $(".nav-link");
 $(document).scroll(function () {
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-    $navContainer.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    $navLink.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
 });
 });
-

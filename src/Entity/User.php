@@ -83,13 +83,8 @@ class User implements UserInterface
     private $details;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\Length(
-     *          min = 10,
-     *          max = 10,
-     *          minMessage = "Veuillez entrez un numéro de téléphone valide !",
-     *          maxMessage = "Veuillez entrez un numéro de téléphone valide !"
-     * )
+     * @ORM\Column(type="string")
+     * 
      */
     private $phone;
 
@@ -320,7 +315,7 @@ class User implements UserInterface
     public function getProducts(): Collection
     {
         return $this->products;
-    }
+    }   
 
     public function addProduct(Product $product): self
     {
