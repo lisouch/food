@@ -1,12 +1,5 @@
-/**********************
-        general
-***********************/
-.container {
-    /* height: fit-content; */
-    /* margin-top: 7%; */
-}
 /*********************
-        navbar
+    navbar HOME
 ***********************/
 #logo{
     width: 50%;
@@ -27,12 +20,8 @@ header{
     padding-top: 15%;
 }
 .nav-link{
-    color: #78c2ad !important;
-}
-.nav-link.scrolled{
     color: white !important;
 }
-
 .navbar-fixed-top.scrolled {
     background-color: #78c2ad;
     -webkit-transition: background-color 0.5s ease-in-out;
