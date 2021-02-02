@@ -54,7 +54,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user%{id}", name="user_show", methods={"GET"})
+     * @Route("/user{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
@@ -64,7 +64,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/edit%{id}", name="user_edit", methods={"GET","POST"})
+     * @Route("/edit{id}", name="user_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user): Response
     {
@@ -101,7 +101,7 @@ class UserController extends AbstractController
     // }
     
     /**
-     * @Route("user/delete/{id}", name="user_delete", methods={"DELETE"}))
+     * @Route("/delete{id}", name="user_delete", methods={"DELETE"}))
      */
     public function delete(Request $request, $id){
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
