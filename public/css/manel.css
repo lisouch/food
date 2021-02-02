@@ -1,0 +1,64 @@
+/* CSS Page de vue du produit */
+.display
+{
+    display: flex;
+    justify-content: space-around;
+}
+figure
+{
+    width: 50%;
+
+}
+.content
+{
+    width: 50%;
+    border: 1px solid #78c2ad;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.price
+{
+    border: 1px solid black;
+    width: 30%;
+    margin: 0 auto;
+}
+.button
+{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+.button>div
+{
+    margin: 5px;
+}
+
+/* CSS Page de modification du produit */
+
+.formProduct
+{
+    width: 80%;
+    margin: 0 auto;
+}
+.time
+{
+    display: flex;
+    justify-content: center;
+}
+
+h6
+{
+    text-align: center;
+}
+.choice
+{
+    display: flex;
+    justify-content: center;
+
+}
+.test
+{
+    display: flex;
+}

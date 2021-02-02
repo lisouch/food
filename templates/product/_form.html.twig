@@ -1,20 +1,28 @@
-{{ form_start(form) }}
+<div class="formEditProduct">
+    {{ form_start(form) }}
 
     {{ form_errors(form.title) }}
     {{ form_row(form.title)}}
-
-    {{ form_row(form.timeMin)}}
-    {{ form_row(form.timeMax)}}
-    {{ form_row(form.category)}}
-    {{ form_row(form.diet)}}
-    {{ form_row(form.price)}}
 
     {{ form_errors(form.description) }}
     {{ form_row(form.description)}}
 
     {{ form_row(form.image)}}
+    {{ form_row(form.price)}}
+
+    <div class="choice">
+        {{ form_row(form.category)}}
+        {{ form_row(form.diet)}}
+    </div>
+
+    <h6>Disponibilté de votre plat</h6>
+    <div class="time">
+        {{ form_row(form.timeMin)}}
+        {{ form_row(form.timeMax)}}
+    </div>
+
     {{ form_row(form.submit)}}
 
-    {# {{ form_widget(form) }} #}
-{{ form_end(form) }}
+    {{ form_end(form) }}
+    </div>
  

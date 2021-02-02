@@ -2,14 +2,27 @@
 
 {% block title %}Bienvenue chez Food To you !{% endblock %}
 
-{% block css %}{% endblock %}
+{% block css %}<link rel="stylesheet" href="css/manel.css">{% endblock %}
+
 
 {% block body %}
-
 	<div class="welcome">
 		<p class="title" >Bienvenue chez Food To You</p>
 		<p>des plats faits maison dans vos maisons</p>
 	</div>
+
+	{% for product in product %}
+		<div class="test">
+			<div>
+				{{product.title}}
+				<figure>
+					<img src="../assets/images_directory/{{product.image}}" alt="image du plat" width="30%">
+				</figure>
+				{{product.price}} €
+				<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+			</div>
+		</div>
+	{% endfor %}
 
 {% endblock body %}
 

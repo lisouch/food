@@ -19,6 +19,20 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    /**
+     * @return Product[]
+     */
+    public function findJoin(int $id)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+        SELECT p, u
+        FROM App\Entity\Product p
+        INNER JOIN p.user u WHERE p.user = :id
+        ")->setParameter('id', $id);
+        return $query->getResult();
+    }
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

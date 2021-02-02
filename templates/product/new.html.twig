@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Publiez votre plat - Food To You{% endblock %}
+{% block css %}<link rel="stylesheet" href="css/manel.css">{% endblock %}
 
-		
 {% block navbar %}
     {% include "includes/navbarComplete.html.twig" %}
 {% endblock %}
@@ -13,5 +13,4 @@
 
     {{ include('product/_form.html.twig') }}
 
-    <a href="{{ path('product_index') }}">back to list</a>
 {% endblock %} 

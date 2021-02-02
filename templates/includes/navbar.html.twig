@@ -14,7 +14,10 @@
         {% if app.user %} 
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">Publiez votre annonce</a>
+                <a class="nav-link" href="{{ path('user_show',  {'id': app.user.id}) }}">Mon compte</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('product_new') }}">Publiez votre annonce</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Panier</a>

@@ -6,6 +6,8 @@ use App\Entity\Product;
 use App\Entity\User;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -62,42 +64,72 @@ class ProductController extends AbstractController
                 $product->setImage($newImage);
             }
 
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('product_index');
+            return $this->redirectToRoute('product_show', ['id' => $product->getId()]);
         }
 
         return $this->render('product/new.html.twig', [
             'product' => $product,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/produit/{id}", name="product_show", methods={"GET"})
+     * @Route("/produit{id}", name="product_show", methods={"GET"})
      */
-    public function show(Product $product): Response
+    public function show(Product $product, ProductRepository $productRepository): Response
     {
+            $userProduct = $product->getUser()->getId();
+
         return $this->render('product/show.html.twig', [
-            'product' => $product
+            'product' => $product,
+            'userProduct' => $userProduct
+            // 'productFind' => $productFind
         ]);
     }
 
     /**
-     * @Route("/produit/{id}/editer", name="product_edit", methods={"GET","POST"})
+     * @Route("/editer{id}", name="product_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Product $product): Response
     {
+        $image = $product->getImage();
+
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $product ->setUpdateAt(new \DateTime());
+
+            $imageUpdate = $form->get('image')->getData();
+
+            if($imageUpdate){
+                $originalImage = pathinfo($imageUpdate->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImage = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalImage);
+                $newImage = $safeImage.'-'.uniqid().'.'.$imageUpdate->guessExtension();
+
+                try {
+                    $imageUpdate->move($this->getParameter('images_directory'),
+                        $newImage
+                    );
+                } catch (FileException $e) {
+                    
+                }
+
+                $product->setImage($newImage);
+            }
+            else{
+                $imageUpdate = $image;
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('product_index');
+            return $this->redirectToRoute('product_show', ['id' => $product->getId()]);
         }
 
         return $this->render('product/edit.html.twig', [
@@ -107,16 +139,19 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/produit/{id}", name="product_delete", methods={"DELETE"})
+     * @Route("/produit{id}", name="product_delete", methods={"DELETE"})
+     *
      */
     public function delete(Request $request, Product $product): Response
     {
+
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();
+
         }
 
-        return $this->redirectToRoute('product_index');
+        return $this->redirectToRoute('home');
     }
 }

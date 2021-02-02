@@ -2,19 +2,20 @@
 
 namespace App\Form;
 
-use App\Entity\Category;
 use App\Entity\Diet;
 use App\Entity\Product;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProductType extends AbstractType
 {
@@ -28,24 +29,28 @@ class ProductType extends AbstractType
                 'label' => false
             ])
             ->add('timeMin', TimeType::class,[
-                'label' => "De"
+                'label' => "De "
             ])
             ->add('timeMax', TimeType::class,[
-                'label' => "Jusqu'à"
+                'label' => "à "
             ])
 
             ->add('category', EntityType::class,
             [
                 'class'=> Category::class,
+                'placeholder' => 'Catégorie',
                 'choice_label' => function ($category) {return $category->getName();},
-                'label' => false
+                'label' => false,
+                'required' => false
             ])
 
             ->add('diet', EntityType::class,
             [
                 'class'=> Diet::class,
+                'placeholder' => 'Régime alimentaire',
                 'choice_label' => function ($diet) {return $diet->getName();},
-                'label' => false
+                'label' => false,
+                'required' => false
             ]
             )
 
@@ -55,7 +60,7 @@ class ProductType extends AbstractType
                 ],
                 'label' => false
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'attr'=> [
                     'placeholder' => "Votre description ..."
                 ],

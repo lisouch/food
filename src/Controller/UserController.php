@@ -23,7 +23,7 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
+ 
     /**
      * @Route("/inscription", name="user_new", methods={"GET","POST"})
      */
