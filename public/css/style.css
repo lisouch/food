@@ -9,5 +9,49 @@
     navbar ALL
 ***********************/
 #body{
-    margin-top: 10%;
+    margin-top: 8%;
+}
+/**********************
+        Formulaires
+***********************/
+#formUser{
+    padding-top: 2%;
+}
+.formLogin
+{
+    margin: 0 auto;
+    width: 70%;
+}
+h1{
+    padding: 0px 0 30px 0;
+    text-align: center;
+}
+#confirmButton{
+    text-align: center;
+}
+.buttonContainer{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.fail{
+    display: flex;
+    justify-content: center;
+}
+/**********************
+    page login
+***********************/
+#fail {
+text-align: center;
+margin-top: 2%;
+}
+#fail>div{
+    padding-top: 1%;
+}
+/**********************
+   page produit/nouveau
+***********************/
+.mealPost{
+    text-align: center;
+    margin: 2% 0;
 }
