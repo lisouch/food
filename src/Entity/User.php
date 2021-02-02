@@ -83,13 +83,8 @@ class User implements UserInterface
     private $details;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\Length(
-     *          min = 10,
-     *          max = 10,
-     *          minMessage = "Veuillez entrez un numéro de téléphone valide !",
-     *          maxMessage = "Veuillez entrez un numéro de téléphone valide !"
-     * )
+     * @ORM\Column(type="string")
+     * 
      */
     private $phone;
 
