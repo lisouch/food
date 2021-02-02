@@ -5,35 +5,59 @@
 		<title>
 			{% block title %} Bienvenue - Food To You {% endblock %}
 		</title>
-
+		<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 
 		{% block css %}{% endblock %}
-
 	</head>
-
     <body>
-	
 		{% block header %} 
 			{% include "includes/navbarAll.html.twig" %} 
 		{% endblock header %}
-
 		<div class="container" id="body">
-			{% block body %}
-			
+			{% block body %}	
 			{% endblock body %}
-
 		</div>
+	
+<!-- Footer Section Start -->
+      <footer class="footer-area section-padding" style="padding-top: 30px; padding-bottom: 30px">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
+                    <ul class="social-icon">
+                      <li>
+                        <a class="facebook" href="#"><i class="icon-social-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a class="twitter" href="#"><i class="icon-social-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a class="instagram" href="#"><i class="icon-social-instagram"></i></a>
+                      </li>
+                      <li>
+                        <a class="linkedin" href="#"><i class="icon-social-linkedin"></i></a>
+                      </li>
+                    </ul>
+                    <p>Copyright © 2021</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </footer>
+        <!-- Footer Section End -->
 
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		//  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		//  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
 
 		{% block js %}{% endblock %}
-
+		
 	</body>
-
 </html>

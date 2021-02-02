@@ -55,3 +55,92 @@ margin-top: 2%;
     text-align: center;
     margin: 2% 0;
 }
+/**********************
+        Footer
+***********************/
+.footer-area {
+    background: #595959;
+  }
+  
+  .footer-area .footer-text p {
+    font-size: 14px;
+    margin-top: 20px;
+      margin-left: 30px;
+    color: #fff;
+  }
+  
+  .footer-area .footer-text p a {
+    color: #00b4d9;
+  }
+  
+  .footer-area .footer-text .nav-inline .nav-link {
+    padding: 11px 7px;
+    color: #888;
+  }
+  
+  .footer-area .footer-text .nav-inline .nav-link:hover {
+    color: #00b4d9;
+  }
+  
+  #copyright {
+    background: #333;
+  }
+  
+  #copyright p {
+    line-height: 42px;
+    color: #fff;
+    margin: 0;
+  }
+  
+  #copyright p a {
+    color: #fff;
+  }
+  
+  #copyright p a:hover {
+    color: #00b4d9;
+  }
+  
+  .social-icon li {
+    display: inline-block;
+  }
+  
+  .social-icon li a {
+    color: #000;
+    background: #fff;
+    width: 35px;
+    height: 35px;
+    line-height: 38px;
+    display: block;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 16px;
+    margin: 15px 6px 12px 6px;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+  }
+  
+  .social-icon li a:hover {
+    color: #fff;
+  }
+  
+  .social-icon li .facebook:hover {
+    background: #3b5999;
+  }
+  
+  .social-icon li .twitter:hover {
+    background: #4A9CEC;
+  }
+  
+  .social-icon li .instagram:hover {
+    background: #D6274D;
+  }
+  
+  .social-icon li .linkedin:hover {
+    background: #1260A2;
+  }
+  
+  .social-icon li .google:hover {
+    background: #CE332A;
+  }
