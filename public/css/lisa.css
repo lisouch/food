@@ -1,0 +1,90 @@
+/**********************
+        general
+***********************/
+.container {
+    /* height: fit-content; */
+    /* margin-top: 7%; */
+}
+/*********************
+        navbar
+***********************/
+#logo{
+    width: 50%;
+    height: 50%;
+} 
+header{
+    background: url(../assets/img/brunch.jpg) no-repeat;
+    background-size: cover
+} 
+.welcome{
+    height: 900px; 
+    font-size: 3em;    
+    color: white;
+    text-align: center;
+    padding-top: 2em 0;
+}
+.title{
+    padding-top: 15%;
+}
+.nav-link{
+    color: #78c2ad !important;
+}
+.nav-link.scrolled{
+    color: white !important;
+}
+
+.navbar-fixed-top.scrolled {
+    background-color: #78c2ad;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    transition:  background-color 0.5s ease-in-out;
+}
+
+/**********************
+        Formulaires
+***********************/
+#formUser{
+    padding-top: 2%;
+}
+.formLogin
+{
+    margin: 0 auto;
+    width: 70%;
+}
+h1{
+    padding: 40px 0 30px 0;
+    text-align: center;
+}
+#confirmButton{
+    text-align: center;
+}
+.buttonContainer{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.fail{
+    display: flex;
+    justify-content: center;
+}
+
+/**********************
+    page login
+***********************/
+#fail {
+text-align: center;
+margin-top: 2%;
+}
+#fail>div{
+    padding-top: 1%;
+}
+
+/**********************
+   page produit/nouveau
+***********************/
+.mealPost{
+    text-align: center;
+    margin: 2% 0;
+}

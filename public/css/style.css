@@ -3,12 +3,9 @@
 ***********************/
 .container {
     /* height: fit-content; */
-    margin-top: 7%;
+    /* margin-top: 7%; */
 }
-
-
-
-/**********************
+/*********************
         navbar
 ***********************/
 #logo{
@@ -19,10 +16,6 @@ header{
     background: url(../assets/img/brunch.jpg) no-repeat;
     background-size: cover
 } 
-/* .bg-dark {
-    background-color: rgba(255, 0, 0, 0)!important;
-    padding-top: 20px;
-} */
 .welcome{
     height: 900px; 
     font-size: 3em;    
@@ -48,10 +41,6 @@ header{
     -o-transition: background-color 0.5s ease-in-out;
     transition:  background-color 0.5s ease-in-out;
 }
-
-
-
-
 
 /**********************
         Formulaires
@@ -80,7 +69,6 @@ h1{
     display: flex;
     justify-content: center;
 }
-
 
 /**********************
     page login
