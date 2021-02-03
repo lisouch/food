@@ -15,5 +15,14 @@ $(document).ready(function () {
                 return false;
             });
         });
+
+            // Clique sur où le récupérer
+
+    $("#imgAdress").hide();
+
+    $("#clickOnAdress").click(function () {
+        
+        $("#imgAdress").toggle();
+    });
     
     });

@@ -22,7 +22,10 @@
         <div class="localisation">
             <h6>Où le récupérer</h6>
             <p>{{ user.cp }} {{ user.city }}</p>
-            <button class='btn btn-info'>Cliquez pour voir le quartier</button>
+            <button class='btn btn-info' id="clickOnAdress">Cliquez pour voir le quartier</button>
+            <div class="div" id="imgAdress">
+                <img src="{{ asset('assets/img/map.jpg') }} " alt="">
+            </div>
         </div>
         
         <div class="button">
@@ -51,7 +54,9 @@
     </div>
 
     
-{% block js %} <script src="js/manel.js"></script>  {% endblock %}
+{% block js %}
+    <script src="js/manel.js"></script>
+{% endblock js  %}
 
 {% endblock %}
  
