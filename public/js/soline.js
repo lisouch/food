@@ -6,7 +6,7 @@ if(user){
             if(confirm("Etes-vous sûr de vouloir supprimer votre profil?")){
                 const id = e.target.getAttribute('id');
 
-                fetch(`/user/delete/${id}`,{
+                fetch(`/delete${id}`,{
                     method: 'DELETE'
                 }).then(res => window.location.reload());
             }

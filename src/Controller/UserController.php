@@ -66,12 +66,18 @@ class UserController extends AbstractController
     /**
      * @Route("/edit{id}", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user ->setUpdateAt(new \DateTime());
+
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_show', ['id' => $user->getId()]);
@@ -84,36 +90,36 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/delete{id}", name="user_delete", methods={"DELETE"})
      */
-    // public function delete(Request $request, User $user): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-    //         $entityManager = $this->getDoctrine()->getManager();
-    //         $entityManager->remove($user);
-    //         $entityManager->flush();
+    public function delete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) 
+        {
+            $this->container->get('security.token_storage')->setToken(null);
 
-
-    //         return $this->redirectToRoute('home');
-    //     }
-
-    //     return $this->redirectToRoute('user_show');
-    // }
-    
-    /**
-     * @Route("/delete{id}", name="user_delete", methods={"DELETE"}))
-     */
-    public function delete(Request $request, $id){
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($user);
-        $entityManager->flush();
-
-        $response = new Response();
-        $response->send();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
         return $this->redirectToRoute('home');
-
     }
+    
+    // /**
+    //  * @Route("/delete{id}", name="user_delete", methods={"DELETE"}))
+    //  */
+    // public function delete(Request $request, $id){
+    //     $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+    //     $entityManager = $this->getDoctrine()->getManager();
+    //     $entityManager->remove($user);
+    //     $entityManager->flush();
 
+    //     $response = new Response();
+    //     $response->send();
+
+    //     return $this->redirectToRoute('home');
+
+    // }
+ 
 }

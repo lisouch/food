@@ -5,46 +5,53 @@
 
 {% block body %}
 
-    <h1>{{ product.title }}</h1>
-
-    <div class="container">
-        <div class="display">
+    <div class="containerProduct">
+        <h1>{{ product.title }} de {{ user.firstName}}</h1>
+        <div class="contentProduct">
             <figure>
-                    <img src="../assets/images_directory/{{product.image}}" alt="image du plat" width="70%">
-                </figure>
-                <div class="content">
-                    <p>
-                        {{ product.description }}
-                    </p>
-                    <p>
-                        Ce plat est disponible de {{ product.timeMin ? product.timeMin|date('H:i') : '' }} jusqu'à {{ product.timeMax ? product.timeMax|date('H:i') : '' }}
-                    </p>
-                    <p class="price">
-                        {{ product.price }} € 
-                    </p>
-                </div>
-        </div>
-
-        {% if app.user.id == userProduct %}
-            <div class="button">
-                <div>
-                    <a href="{{ path('home')}}"><button type="button" class="btn btn-primary">Valider</button></a>
-                </div>
-                
-                <div>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}"><button type="button" class="btn btn-secondary">Modifier</button></a>
-                </div>
-                
-                <div>
-                    {{ include('product/_delete_form.html.twig') }}
-                </div>
+                <img src="../assets/images_directory/{{product.image}}" alt="image du plat" width="40%">
+                <figcaption class="price"><p>{{ product.price }} €</p></figcaption>
+            </figure>
+            <div class="description">
+                {{ product.description }}
+                <p>
+                    Ce plat est disponible de {{ product.timeMin ? product.timeMin|date('H:i') : '' }} jusqu'à {{ product.timeMax ? product.timeMax|date('H:i') : '' }}
+                </p>
             </div>
-        {% else %}
-             <a class="btn btn-primary btn-sm" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au panier</a>
-        {% endif %}
+        </div>
+        <div class="localisation">
+            <h6>Où le récupérer</h6>
+            <p>{{ user.cp }} {{ user.city }}</p>
+            <button class='btn btn-info'>Cliquez pour voir le quartier</button>
+        </div>
+        
+        <div class="button">
+            {% if app.user.id == user.id %}
+            <div>
+                <a href="{{ path('home')}}"><button type="button" class="btn btn-primary">Valider</button></a>
+            </div>
+            
+            <div>
+                <a href="{{ path('product_edit', {'id': product.id}) }}"><button type="button" class="btn btn-secondary">Modifier</button></a>
+            </div>
+            
+            <div>
+                {{ include('product/_delete_form.html.twig') }}
+            </div>
+            {% else %}
+            <div>
+                <a class="btn btn-primary btn-sm" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au panier</a>
+            </div>
+            <div>
+                <a class="btn btn-link" href="{{ path('home') }}">Revenir à l'accueil</a>
+            </div>
+            {% endif %}
+        </div>
            
     </div>
 
-{% endblock %}
-
+    
 {% block js %} <script src="js/manel.js"></script>  {% endblock %}
+
+{% endblock %}
+ 

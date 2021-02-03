@@ -82,15 +82,14 @@ class ProductController extends AbstractController
      */
     public function show(Product $product, ProductRepository $productRepository): Response
     {
-            $userProduct = $product->getUser()->getId();
+        $user = $product->getUser();
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'userProduct' => $userProduct
-            // 'productFind' => $productFind
+            'user' => $user
         ]);
     }
-
+ 
     /**
      * @Route("/editer{id}", name="product_edit", methods={"GET","POST"})
      */
@@ -102,8 +101,6 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
             $product ->setUpdateAt(new \DateTime());
 
             $imageUpdate = $form->get('image')->getData();
@@ -155,3 +152,4 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('home');
     }
 }
+ 

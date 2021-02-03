@@ -12,72 +12,82 @@
 		<div class="welcome">
 			<p class="title" >Bienvenue chez Food To You</p>
 			<p>des plats faits maison dans vos maisons</p>
-		</div>
+
+			<div class="container">
+				{{ form_start(form) }}
+					<div class="row">
+						<div class="color col-lg-6   p-4 mb-4 rounded">
+							{{ form_row(form.city) }}
+						</div>
+						<div class="col-lg-6">	
+							<button class="btn btn-primary">Rechercher</button>
+						</div>
+					</div>
+				{{form_end(form)}} 
+			</div>
+		</div>	
 	</header>
 
+	<div class="container mt-4 rechercher">
+		<div class="row">
 
-	<div class='jumbotron'>
-		<div class="container">
-			{{form_start(form)}}
-				<div class="form-row">
-					<div class="col">
-						{{ form_row(form.city) }}
-					</div>
-					<div class="col">
-						<button class="btn btn-primary">Rechercher</button>
-					</div>
-				</div>
-			{{form_end(form)}} 
-			{% endblock header %}
-
-{% block body %}
-
-			<div class="container mt-4">
-				<div class="row">
-					{% for product in products %}
-						<div class="col-md-4">
-							<div class="card mb-4">
-								<div class="card-body">
-									<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="image du plat">					
-									<h5 class="card-title">
-										{{product.title}} 
-									</h5>
-									<p class="card-text">{{product.description}}</p>
-									<div class="text-primary" style="font-size:2rem; font-weight:bold">
-										{{product.price}} €
-									<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary ml-5">Voir</button></a>
-									</div>
-								</div>
-							</div>
+		{% if products == false %}
+		<p> Aucun resultat </p> 
+		{% else %}
+			{% for product in products %}
+			<div class="col-md-4">
+				<div class="card mb-4">
+					<div class="card-body">
+						<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="">					
+						<h5 class="card-title">
+							{{product.title}} 
+						</h5>
+						<p class="card-text">{{product.description}}</p>
+						<div class="text-primary" style="font-size:2rem; font-weight:bold">
+							{{product.price}} €
 						</div>
-					{% endfor %}
+						{% if app.user %}
+							<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+						{% else %}
+							<a href="{{ path('app_login') }}"><button type="button" class="btn btn-primary">Voir</button></a>
+						{% endif %}
+					</div>
 				</div>
 			</div>
-
-			<div class="container mt-4">
-				<div class="row">
-					{% for product in product %}
-								<div class="col-md-4">
-							<div class="card mb-4">
-								<div class="card-body">
-									<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="image du plat">					
-									<h5 class="card-title">
-										{{product.title}} 
-									</h5>
-									<p class="card-text">{{product.description}}</p>
-									<div class="text-primary" style="font-size:2rem; font-weight:bold">
-										{{product.price}} €
-									<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary ml-5">Voir</button></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
+			{% endfor %}
+		{% endif %}
 		</div>
 	</div>
 
+{% endblock header %}
+
+{% block body %}
+
+<div class="container mt-4 recentes" >
+	<div class="row">
+		{% for product in product %}
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-body">
+							<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="">					
+							<h5 class="card-title">
+								{{product.title}} 
+							</h5>
+							<p class="card-text">{{product.description}}</p>
+							<div class="text-primary" style="font-size:2rem; font-weight:bold">
+								{{product.price}} €
+							</div>
+							{% if app.user %}
+							<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+							{% else %}
+							<a href="{{ path('app_login') }}"><button type="button" class="btn btn-primary">Voir</button></a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+	</div>
+</div>
 {% endblock body %}
 
 {% block js %}<script src="js/lisa.js"></script>{% endblock js  %}

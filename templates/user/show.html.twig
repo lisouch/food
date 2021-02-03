@@ -10,13 +10,13 @@
   <hr class="my-4">
   {# <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> #}
   <a class="btn btn-primary btn-lg" href="{{ path('user_edit', {'id': user.id}) }}" role="button">Modifier votre profil</a>
-  <a class="btn btn-outline-danger btn-lg delete-user" href="{{ path('home')}}" role="button" id="{{user.id}}">Supprimer votre profil</a> 
+  {# <a class="btn btn-outline-danger btn-lg delete-user" href="{{ path('home')}}" role="button" id="{{user.id}}">Supprimer votre profil</a>  #}
  
+    {{ include('user/_delete_form.html.twig') }} 
 
 </div>
 
   
-    {# {{ include('user/_delete_form.html.twig') }}  #}
     {% endblock %}
     
 {% block js %}

@@ -1,3 +1,10 @@
+/**********************
+        general
+***********************/
+/* .container {
+    height: fit-content; 
+    margin-top: 7%;
+} */
 /*********************
     navbar HOME
 ***********************/
@@ -7,7 +14,7 @@
 } 
 header{
     background: url(../assets/img/brunch.jpg) no-repeat;
-    background-size: cover
+    background-size: cover;
 } 
 .welcome{
     height: 900px; 
