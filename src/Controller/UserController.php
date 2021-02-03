@@ -66,12 +66,18 @@ class UserController extends AbstractController
     /**
      * @Route("/edit{id}", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user ->setUpdateAt(new \DateTime());
+
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_show', ['id' => $user->getId()]);
@@ -115,5 +121,5 @@ class UserController extends AbstractController
         return $this->redirectToRoute('home');
 
     }
-
+ 
 }

@@ -90,7 +90,7 @@ class ProductController extends AbstractController
             // 'productFind' => $productFind
         ]);
     }
-
+ 
     /**
      * @Route("/editer{id}", name="product_edit", methods={"GET","POST"})
      */
@@ -102,8 +102,6 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
             $product ->setUpdateAt(new \DateTime());
 
             $imageUpdate = $form->get('image')->getData();
@@ -155,3 +153,4 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('home');
     }
 }
+ 

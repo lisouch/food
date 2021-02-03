@@ -55,19 +55,27 @@
 
 {% block body %}
 
-	{% for product in product %}
-		<div class="test">
-			<div>
-				{{product.title}}
-				<figure>
-					<img src="../assets/images_directory/{{product.image}}" alt="image du plat" width="30%">
-				</figure>
-				{{product.price}} €
-				<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
-			</div>
-		</div>
-	{% endfor %}
-
+<div class="container mt-4"
+	<div class="row">
+		{% for product in product %}
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-body">
+							<img style="width:250px;" src="../assets/images_directory/{{product.image}}" alt="">					
+							<h5 class="card-title">
+								{{product.title}} 
+							</h5>
+							<p class="card-text">{{product.description}}</p>
+							<div class="text-primary" style="font-size:2rem; font-weight:bold">
+								{{product.price}} €
+							</div>
+							<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+	</div>
+</div>
 {% endblock body %}
 
 {% block js %}<script src="js/lisa.js"></script>{% endblock js  %}
