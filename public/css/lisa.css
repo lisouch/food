@@ -14,7 +14,7 @@
 } 
 header{
     background: url(../assets/img/brunch.jpg) no-repeat;
-    background-size: cover
+    background-size: cover;
 } 
 .welcome{
     height: 900px; 
@@ -89,11 +89,3 @@ margin-top: 2%;
     margin: 2% 0;
 }
 
-
-
-/*  TEST MANEL POUR SEPARER LES RESULTATS RECHERCHES & LES DERNIERS PLATS AJOUTER */
-
-.rechercher
-{
-    border: 1px solid black;
-}

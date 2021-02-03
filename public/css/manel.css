@@ -2,38 +2,37 @@
 .display
 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around
+}
+.description
+{
+    text-align: center;
 }
 figure
 {
-    width: 50%;
-
-}
-.content
-{
-    width: 50%;
-    border: 1px solid #78c2ad;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 .price
 {
-    border: 1px solid black;
-    width: 30%;
-    margin: 0 auto;
+    font-weight: bold;
+    font-size: 25px;
+}
+.localisation
+{
+    /* border: 1px solid #78c2ad; */
+    text-align: center;
 }
 .button
 {
-    margin: 15px;
+    /* margin: 35px; */
     display: flex;
     justify-content: center;
 }
 .button>div
 {
-    margin: 5px;
+    margin: 35px;
 }
+
 
 /* CSS Page de modification du produit */
 
@@ -58,7 +57,4 @@ h6
     justify-content: center;
 
 }
-.test
-{
-    display: flex;
-}
+

@@ -13,10 +13,10 @@
 } 
 header{
     background: url(../assets/img/brunch.jpg) no-repeat;
-    background-size: cover
+    background-size: cover;
+    height: 90Opx
 } 
-.welcome{
-    height: 900px; 
+.welcome{ 
     font-size: 3em;    
     color: white;
     text-align: center;
@@ -87,3 +87,12 @@ margin-top: 2%;
     text-align: center;
     margin: 2% 0;
 }
+
+
+/* TEST MANEL  */
+/* input[type="text"]
+{
+    background: transparent;
+    border: 2px solid #78c2ad;
+} */
+

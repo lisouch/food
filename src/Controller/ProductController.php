@@ -82,12 +82,11 @@ class ProductController extends AbstractController
      */
     public function show(Product $product, ProductRepository $productRepository): Response
     {
-            $userProduct = $product->getUser()->getId();
+        $user = $product->getUser();
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'userProduct' => $userProduct
-            // 'productFind' => $productFind
+            'user' => $user
         ]);
     }
  
