@@ -30,8 +30,12 @@
 	</header>
     			{{form_end(form)}} 
 
-	<div class="container mt-4"
+	<div class="container mt-4 rechercher">
 		<div class="row">
+		<h5> Votre recherche</h5>
+		{% if products == false %}
+		<p> Aucun resultat </p> 
+		{% else %}
 			{% for product in products %}
 			<div class="col-md-4">
 				<div class="card mb-4">
@@ -44,10 +48,16 @@
 						<div class="text-primary" style="font-size:2rem; font-weight:bold">
 							{{product.price}} €
 						</div>
+						{% if app.user %}
+							<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+						{% else %}
+							<a href="{{ path('app_login') }}"><button type="button" class="btn btn-primary">Voir</button></a>
+						{% endif %}
 					</div>
 				</div>
 			</div>
 			{% endfor %}
+		{% endif %}
 		</div>
 	</div>
 
@@ -55,7 +65,7 @@
 
 {% block body %}
 
-<div class="container mt-4"
+<div class="container mt-4 recentes" >
 	<div class="row">
 		{% for product in product %}
 				<div class="col-md-4">
@@ -69,7 +79,11 @@
 							<div class="text-primary" style="font-size:2rem; font-weight:bold">
 								{{product.price}} €
 							</div>
+							{% if app.user %}
 							<a href="{{ path('product_show', {'id': product.id}) }}"><button type="button" class="btn btn-primary">Voir</button></a>
+							{% else %}
+							<a href="{{ path('app_login') }}"><button type="button" class="btn btn-primary">Voir</button></a>
+							{% endif %}
 						</div>
 					</div>
 				</div>

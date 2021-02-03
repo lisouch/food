@@ -90,36 +90,36 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/delete{id}", name="user_delete", methods={"DELETE"})
      */
-    // public function delete(Request $request, User $user): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-    //         $entityManager = $this->getDoctrine()->getManager();
-    //         $entityManager->remove($user);
-    //         $entityManager->flush();
+    public function delete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) 
+        {
+            $this->container->get('security.token_storage')->setToken(null);
 
-
-    //         return $this->redirectToRoute('home');
-    //     }
-
-    //     return $this->redirectToRoute('user_show');
-    // }
-    
-    /**
-     * @Route("/delete{id}", name="user_delete", methods={"DELETE"}))
-     */
-    public function delete(Request $request, $id){
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($user);
-        $entityManager->flush();
-
-        $response = new Response();
-        $response->send();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
         return $this->redirectToRoute('home');
-
     }
+    
+    // /**
+    //  * @Route("/delete{id}", name="user_delete", methods={"DELETE"}))
+    //  */
+    // public function delete(Request $request, $id){
+    //     $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+    //     $entityManager = $this->getDoctrine()->getManager();
+    //     $entityManager->remove($user);
+    //     $entityManager->flush();
+
+    //     $response = new Response();
+    //     $response->send();
+
+    //     return $this->redirectToRoute('home');
+
+    // }
  
 }

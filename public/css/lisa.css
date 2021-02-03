@@ -1,10 +1,10 @@
 /**********************
         general
 ***********************/
-.container {
-    /* height: fit-content; */
-    /* margin-top: 7%; */
-}
+/* .container {
+    height: fit-content; 
+    margin-top: 7%;
+} */
 /*********************
         navbar
 ***********************/
@@ -87,4 +87,13 @@ margin-top: 2%;
 .mealPost{
     text-align: center;
     margin: 2% 0;
+}
+
+
+
+/*  TEST MANEL POUR SEPARER LES RESULTATS RECHERCHES & LES DERNIERS PLATS AJOUTER */
+
+.rechercher
+{
+    border: 1px solid black;
 }
