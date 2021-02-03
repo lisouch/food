@@ -32,7 +32,9 @@
 		<div class="row">
 
 		{% if products == false %}
-		<p> Aucun resultat </p> 
+		<div class="noResult">
+			<p> Aucun resultat </p>
+		</div> 
 		{% else %}
 			{% for product in products %}
 			<div class="col-md-4">

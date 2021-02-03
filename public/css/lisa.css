@@ -1,10 +1,16 @@
 /**********************
         general
 ***********************/
-/* .container {
-    height: fit-content; 
-    margin-top: 7%;
-} */
+.noResult{
+margin: 0 auto;    
+border: 2px solid #78c2ad;
+box-shadow: 12px 12px 2px 1px #78c2ad;
+padding: 2% 5%;
+font-weight: bold;
+font-size:2em;
+}
+
+
 /*********************
     navbar HOME
 ***********************/
