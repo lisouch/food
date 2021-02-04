@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de votre paiement{% endblock %}
+{% block css %}<link rel="stylesheet" href="css/charlotte.css">{% endblock %}
+
+{% block body %}
+
+<h1> Félicitations vous pouvez venir récupérer votre commande chez Mélissa de 16h à 18h</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Produit</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>      
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <th scope="row">{{ item.product.title }}</th>
+                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.price * item.quantity }}</td>
+                </tr>    
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="3" class="text-right">Total :</th>
+                <td>{{ total }}</td>   
+            </tr>
+        </tfoot>
+    </table>
+    <div class="confirmationDetails">
+        <figure>
+            <img class="mapConfirmation" src="{{ asset('assets/img/adresse.png') }}" alt="Photo de l'adresse du vendeur"/>
+        </figure>
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Adresse de Mélissa</div>
+            <div class="card-body">
+                <p class="card-text">58 rue de l’étang à l’eau 93110 Rosny</p>
+                <p class="card-text">Interphone b code 98A76 1er étage gauche</p>
+                <p class="card-text">La contacter : 06 87 76 75 43</p>           
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="button">
+            <a href="{{ path('home') }}">
+                <button type="button" class="btn btn-outline-primary btn-sm">Retour vers l'accueil</button>
+            </a>
+    </div> 
+{% endblock %}

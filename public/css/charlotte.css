@@ -1,0 +1,12 @@
+.button {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+.confirmationDetails {
+    display: flex;
+    justify-content: center;
+}
+.mapConfirmation {
+    width: 85%;
+}
